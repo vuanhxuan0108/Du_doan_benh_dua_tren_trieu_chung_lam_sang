@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán bệnh</title>
+    <link rel="stylesheet" href="../static/style/main.css">
+</head>
+<body>
+    <h1>Ứng dụng hỗ trợ dự đoán bệnh dựa trên triệu chứng lâm sàng</h1>
+    <form action="/predict" method="post">
+        <div>
+            <label for="symptoms">Nhập mô tả triệu chứng:</label><br>
+            <textarea type="text" id="symptoms" name="symptoms" rows="10" cols="30"></textarea><br>
+        </div>
+        <button type="submit">Dự đoán</button>
+    </form>
+    <p>{{ error }}</p>
+
+    {% if prediction %}
+    <img src="https://snalcbordeaux.fr/wp-content/uploads/2021/09/finger.png">
+        <h2>Kết quả dự đoán: {{ prediction }}</h2>
+        <p><a href="{{ link }}"><u>Tìm hiểu thêm về bệnh tại đây!</u></a></p>
+    {% endif %}
+</body>
+</html>
